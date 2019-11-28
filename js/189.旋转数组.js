@@ -17,8 +17,11 @@ var rotate = function(nums, k) {
     if (j === 0) {
         return
     }
-    for (let i = 0; i < length; i++) {
-        ret[(i + k) % length] = nums[i]
+    for (let i = 0; i < j; i++) {
+        ret[j - i - 1] = nums[length - i - 1]
+    }
+    for (let i = j; i < length; i++) {
+        ret[i] = nums[i - j]
     }
     for (let i = 0; i < length; i++) {
         nums[i] = ret[i]
